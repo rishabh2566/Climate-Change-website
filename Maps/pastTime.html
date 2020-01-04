@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="India - MapChart">
+    <meta name="description" content="Create your own free custom map of India states in 3 easy steps.">
+    <meta property="og:site_name" content="MapChart" />
+    <meta property="og:url" content="https://mapchart.net/india.html" />
+    <meta property="og:title" content="India - MapChart" />
+    <meta property="og:description" content="Create your own free custom Map of India states in 3 easy steps." />
+    <meta property="og:image" content="https://mapchart.net/img/logo-india.png" />
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta name="theme-color" content="#054950" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/style.min.css?v=2.5" type="text/css">
+    <link rel="stylesheet" href="css/europeStyles.css?v=1.2" type="text/css">
+    <link rel="stylesheet" href="css/spectrum.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery.contextMenu.min.css" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://iiti.ac.in" />
+    <script src="cities.js"></script>
+
+    <title>India </title>
+    <style>
+
+.tab {position:absolute;left:10px; }
+
+}
+
+</style>
+</head>
+
+<body>
+    <div class="loader"></div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://iiti.ac.in/"></br> <span class="tab">IIT INDORE</span> </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <section class="header-area">
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="#">
+                                <img src="assets/images/IITlogo.png" alt="Logo" height="66" width="66" style="left:10.0%>
+                            </a>
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item ">
+                                        <a class="page-scroll" href="#home">HOME</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#about">ABOUT</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="page-scroll " href="#portfolio">Realtime Status</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#pricing">Past Result</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#contact">Downloads</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        
+                        </nav> <!-- navbar -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- navbar area -->
+        
+        
+
+    </section>
+
+                   
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- MODALS -->
+    <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="uploadModalLabel"> Upload Your Data </h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <h4> <i class="fa fa-download"></i> Save </h4>
+                        <p> In order to download the dataset click on  <strong>download<kbd>dataset.csv</kbd> file containing all the information.</strong> </p>
+                        <a class="btn btn-new btn-newD icon-save-config" href="" id="link">Download</a>
+                    </div>
+                    <div id="uploadDiv">
+                        <h4> <i class="fa fa-upload"></i> Upload </h4>
+                        <p>Upload your dataset here.. <!-- <strong>copy and paste below the content of the <kbd>mapchartSAVE.txt</kbd> file you previously downloaded.</strong> <em>WARNING! The current map will be cleared of all data.</em> --></p>
+                        <textarea class="form-control" id="uploadData" rows="8" placeholder="Paste the file content here . . ."></textarea>
+                        <button type="submit" id="upload" class="btn btn-new btn-newD icon-upload-config" data-dismiss="modal">Submit</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-new btn-newC icon-close" data-dismiss="modal">Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MODALS -->
+    <div class="container-fluid">
+        <span class="label label-warning" id = 'info'>  </span>
+        <div class="row">
+            <div class="col-md-4" id="tools">
+                <div class="row" id="img-title">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <img src="img/logo-india.png" id="logo" class="img-responsive" alt="india logo">
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-8 p0">
+                        <h1> India </h1>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <h4>
+                            <i class="fa fa-arrow-circle-right"></i>
+                            Select State
+                        </h4>
+                    <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
+                    <h4>
+                            <i class="fa fa-arrow-circle-right"></i>
+                            Select District
+                        </h4>
+                    <select id ="state" class="form-control" required></select>
+                    <script language="javascript">print_state("sts");</script>
+
+                </div>
+
+
+
+                <!-- <div class="row" id="colorPickers">
+                    <div class="col-md-12">
+                        <span class="step">Select State</span>
+                        <h4>
+							<i class="fa fa-arrow-circle-right"></i>
+							Single Selection
+						</h4>
+                        <p>
+                            Select the color you want and click on any state on the map. Right-click on it to remove its color or hide it.
+                        </p>
+                        <form class="form-inline" id="colorPicker">
+                            <div class="col-md-3 col-sm-3 col-xs-3 p0">
+                                <label for="fillpicker" class="control-label">
+                                    <kbd>Fill Color:</kbd>
+                                </label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 p0">
+                                <div class="form-group" id="fillpicker-form">
+                                    <input id="fillpicker" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 p0">
+                                <label for="change-jk" class="control-label">
+                                    <kbd>Change J&amp;K Borders</kbd>
+                                </label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 p0">
+                                <div class="form-group show-ireland-form">
+                                    <input class="tgl tgl-light" id='change-jk' type="checkbox" checked="checked">
+                                    <label class="tgl-btn" for="change-jk"></label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row mb-10">
+                    <div class="col-md-12">
+                        <h4>
+							<i class="fa fa-arrow-circle-right"></i>
+							More Options
+						</h4>
+                        <form class="form-inline pt-10" id="more">
+                            <div class="col-md-3 col-sm-6 col-xs-6 p0">
+                                <label for="backgroundpicker" class="control-label">
+                                    <kbd>Background:</kbd>
+                                </label>
+                            </div>
+                            <div class="col-md-1 col-sm-6 col-xs-6 p0">
+                                <div class="form-group">
+                                    <input id="backgroundpicker" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 p0">
+                                <label for="backgroundpicker" class="control-label">
+                                    <kbd>Borders Color:</kbd>
+                                </label>
+                            </div>
+                            <div class="col-md-1 col-sm-6 col-xs-6 p0">
+                                <div class="form-group">
+                                    <input id="borderpicker" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 p0">
+                                <label for="no-borders" class="control-label">
+                                    <kbd>Borders:</kbd>
+                                </label>
+                            </div>
+                            <div class="col-md-1 col-sm-6 col-xs-6 p0">
+                                <input class="tgl tgl-light" id='no-borders' type="checkbox" checked="checked">
+                                <label class="tgl-btn" for="no-borders"></label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="step">Step 2</span>
+                        <p class="pt-10">
+                            Add the title you want for the chart's legend and choose a label for each color. Change the color for all states in a group by clicking on it.
+                        </p>
+                        <form role="form" class="form-inline mt-10" id="mapTitle">
+                            <div class="col-md-3 col-sm-6 col-xs-6 p0">
+                                <label for="mapTitleInput" class="control-label">
+                                    <kbd>Legend Title:</kbd>
+                                </label>
+                            </div>
+                            <div class="col-md-5 col-sm-6 col-xs-6 p0">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id='mapTitleInput'>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12 col-xs-12 text-center">
+                                <button type="button" class="btn btn-new btn-sm btn-newC icon-close mb-10" id="disableLegend">Disable</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row" id="legendDiv">
+                    <div class="col-md-12" id="legend">
+                        <table class="table-condensed table-bordered " id="ltable">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-2">Color</th>
+                                    <th class="col-md-8" id="description">Label</th>
+                                    <th class="col-md-2">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody id="legendplace"></tbody>
+                        </table>
+                    </div>
+                </div> -->
+                <div class="row" id="buttons">
+                    <div class="col-md-12">
+                        <!-- <span class="step"> Step 3 </span> -->
+                        <!-- <p class="pt-10"> When ready, select <strong>Preview Map</strong>. To download the generated Chart: <strong>Right Click -> Save Image </strong> or select <strong>Download Map</strong>. In case you want to change something, select <strong>Edit</strong>. To start over, select <strong>Clear All</strong>. </p> -->
+                        <div class="text-center">
+                            <a role="button" class="btn btn-new btn-newE btn-block icon-download" id="download">Download Dataset</a>
+                            <button type="button" class="btn btn-new btn-newA btn-block icon-convert" id="convert">Results</button>
+                            <button type="button" class="btn btn-new btn-newB btn-block icon-edit" id="edit" disabled> Edit</button>
+                            <button type="button" class="btn btn-new btn-newC btn-block icon-delete" id="clear"> Clear All</button>
+                            <a class="btn" id="undo-clear">Undo <i class="fa fa-undo" aria-hidden="true"></i></a>
+                            <button class="btn btn-new btn-newD btn-block icon-downup" id="downup" href="" data-toggle="modal" data-target="#uploadModal">Save Results/Upload Your Data set</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12 " id="mapContainer">
+                <canvas id="canvas1" width="3818" height="4600"></canvas>
+                <div id="rsr"> </div>
+            </div>
+        </div>
+    </div>
+    <footer class="row" id="footer">
+        <div class="col-md-6 hidden-sm hidden-xs">
+            <!-- <p class="pull-left"> Did this save you a ton of hours? Please consider a donation</p>
+            <form class="pull-left" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="UBTLNVAR4QSGA">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form> -->
+<!--             <p class="pull-left">or a <a href="https://teespring.com/stores/mapchart-store" style="color:orange;" target="_blank" rel="noopener noreferrer">cool T-shirt!</a></p>
+ -->        </div>
+        <div class="col-md-6">
+<!--             <a href="https://www.instagram.com/mapchart/" class="insta-link"> Follow us on Instagram for updates, cool maps, and more <img src="img/icon-instagram.svg" alt="mapchart instagram follow" class="insta-img"> </a> 
+ --><!--         <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer" class="insta-link">Privacy Policy</a> 
+ --><!--         <a href="https://blog.mapchart.net" target="_blank" rel="noopener noreferrer" class="insta-link" style="float:right;">Visit the Blog for more!</a>
+ -->        </div>
+    </footer>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.browser.min.js"></script>
+    <script src="js/jquery-ui.min.js?v=1.1"></script>
+    <script src="js/raphael-min.js"></script>
+    <script src="js/indiaLoader.js?v=2.2"></script>
+    <script src="js/spectrum.min.js"></script>
+    <script src="js/jquery.contextMenu.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+    <script src="js/app.min.js?v=7.9"></script>
+    <script>
+    $('#change-jk').change(function() {
+        if ($(this).is(":checked")) {
+            $('#Jammu_and_Kashmir_disp').show();
+            $('#Jammu_and_Kashmir').hide();
+        } else {
+            $('#Jammu_and_Kashmir_disp').hide();
+            $('#Jammu_and_Kashmir').show();
+        }
+    });
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-58176163-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-58176163-1');
+    </script>
+</body>
+
+</html>
